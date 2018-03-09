@@ -1,5 +1,7 @@
 server {
-  listen {{ vpn_ip }}:{{ ttrss_port }};
+{% for listen in ttrss_listen %}
+  listen {{ listen }};
+{% endfor %}
 
   server_name {{ ttrss_host }};
   root {{ ttrss_www }};
