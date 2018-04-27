@@ -18,7 +18,7 @@
     - package
     - git
   git:
-    repo: 'https://tt-rss.org/git/tt-rss.git'
+    repo: "{{ ttrss_repo }}"
     dest: "{{ ttrss_www }}"
     depth: 1
     umask: 0027
