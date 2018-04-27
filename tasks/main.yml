@@ -24,30 +24,26 @@
     umask: 0027
   notify: restart tt-rss
 
-- name: tt-RSS | file permissions
+- name: tt-RSS | set group
   tags:
     - permissions
   file:
     path: "{{ ttrss_www }}"
-    owner: root
     group: www-data
-    mode: 'g-w,o='
     recurse: yes
 
-- name: tt-RSS | writable dirs
+- name: tt-RSS | writeable paths
   tags:
-  - permissions
+    - permissions
   file:
     path: "{{ ttrss_www }}/{{ item }}"
     state: directory
-    owner: www-data
-    group: www-data
-    mode: 'u+rw'
+    mode: 'g+w'
     recurse: yes
   with_items:
-  - cache
-  - feed-icons
-  - lock
+    - cache
+    - feed-icons
+    - lock
 
 - name: tt-RSS | config files
   tags:
