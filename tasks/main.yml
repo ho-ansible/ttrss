@@ -2,31 +2,31 @@
 
 - name: tt-RSS | PHP modules
   tags:
-  - package
+    - package
   package:
     name: "{{ item }}"
-    state: present
   with_items:
-  - php-cli
-  - php-gd
-  - php-curl
-  - php-pgsql
-  - php-mbstring
-  - php-xml
+    - php-cli
+    - php-gd
+    - php-curl
+    - php-pgsql
+    - php-mbstring
+    - php-xml
 
 - name: tt-RSS | git clone
   tags:
-  - package
-  - git
+    - package
+    - git
   git:
     repo: 'https://tt-rss.org/git/tt-rss.git'
     dest: "{{ ttrss_www }}"
-    depth: 1 
+    depth: 1
+    umask: 0027
   notify: restart tt-rss
 
 - name: tt-RSS | file permissions
   tags:
-  - permissions
+    - permissions
   file:
     path: "{{ ttrss_www }}"
     owner: root
