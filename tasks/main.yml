@@ -61,26 +61,10 @@
   notify: restart tt-rss
 
 - name: tt-RSS | nginx config
-  tags:
-  - config
-  - site
-  template:
-    src: "{{ item }}.nginx.j2"
-    dest: /etc/nginx/sites-available/{{ item }}
-  with_items:
-  - tt-rss
-  notify: reload nginx
-
-- name: tt-RSS | nginx site enabled
-  tags:
-  - site
-  file:
-    src: /etc/nginx/sites-available/{{ item }}
-    dest: /etc/nginx/sites-enabled/{{ item }}
-    state: link
-  with_items:
-  - tt-rss
-  notify: reload nginx
+  include_role:
+    name: nginx
+    tasks_from: site.yml
+  with_items: tt-rss
 
 - name: tt-RSS | updater service
   tags:
