@@ -21,7 +21,7 @@
     repo: "{{ ttrss_repo }}"
     dest: "{{ ttrss_www }}"
     depth: 1
-    umask: 0027
+    umask: '0027'
   notify: restart tt-rss
 
 - name: tt-RSS | set group
