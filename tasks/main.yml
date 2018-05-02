@@ -4,14 +4,13 @@
   tags:
     - package
   package:
-    name: "{{ item }}"
-  with_items:
-    - php-cli
-    - php-gd
-    - php-curl
-    - php-pgsql
-    - php-mbstring
-    - php-xml
+    name: 
+      - php-cli
+      - php-gd
+      - php-curl
+      - php-pgsql
+      - php-mbstring
+      - php-xml
 
 - name: tt-RSS | git clone
   tags:
