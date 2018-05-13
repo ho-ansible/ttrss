@@ -1,6 +1,8 @@
 [Unit]
 Description=Tiny Tiny RSS feed updater
-After=network.target mysql.service postgresql.service
+After=network.target
+#After=mysql.service
+After=postgresql.service
 
 [Service]
 User=www-data
