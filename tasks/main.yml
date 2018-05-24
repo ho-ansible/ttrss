@@ -39,7 +39,7 @@
     state: directory
     mode: 'g+w'
     recurse: yes
-  with_items:
+  loop:
     - cache
     - feed-icons
     - lock
@@ -50,16 +50,16 @@
   template:
     src: "{{ item.src }}.j2"
     dest: "{{ item.dest }}/{{ item.src }}"
-  with_items:
-  - { src: config.php, dest: "{{ ttrss_www }}" }
-  - { src: tt-rss.service, dest: /etc/systemd/system }
+  loop:
+    - { src: config.php, dest: "{{ ttrss_www }}" }
+    - { src: tt-rss.service, dest: /etc/systemd/system }
   notify: restart tt-rss
 
 - name: tt-RSS | nginx config
   include_role:
     name: nginx
     tasks_from: site.yml
-  with_items: tt-rss
+  loop: [ tt-rss ]
 
 - name: tt-RSS | updater service
   tags:
