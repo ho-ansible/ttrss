@@ -1,6 +1,10 @@
 # Ansible role: ttrss
 PHP-based RSS reader
 
+## DEPRECATED
+Installation of this app has been moved to kubernetes,
+so this ansible role is no longer maintained.
+
 ## Requirements
 Only tested on Debian stable, for now.
 
