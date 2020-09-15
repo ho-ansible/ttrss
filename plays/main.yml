@@ -1,0 +1,12 @@
+#! /usr/bin/env ansible-playbook
+# Configure ttrss RSS news reader
+# Replace 'news' with your own inventory group
+---
+- name: ttrss | RSS news reader
+  hosts: news
+  roles:
+  - role: ttrss
+    tags:
+    - ttrss
+    - rss
+    - news

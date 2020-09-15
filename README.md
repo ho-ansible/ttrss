@@ -17,18 +17,13 @@ Only tested on Debian stable, for now.
 + `ttrss_db_pw`: password for PostgreSQL user
 + `ttrss_listen`: list of nginx "listen" directives. by default, only listens on localhost:80.
 
+## Playbooks
++ `main.yml`: apply role
+
 ## Dependencies
-+ nginx
-+ php-fpm
-+ PostgreSQL
-
-## Example Playbook
-
-```
-- hosts: ttrss
-  roles:
-    - { role: ho-ansible.ttrss }
-```
++ [ho-ansible.nginx](https://github.com/ho-ansible/nginx)
++ [ho-ansible.php-fpm](https://github.com/ho-ansible/php-fpm)
++ [ho-ansible.postgres](https://github.com/ho-ansible/postgres)
 
 ## License
 MIT
