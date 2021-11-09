@@ -9,12 +9,10 @@
 
 	putenv('TTRSS_SELF_URL_PATH={{ ttrss_url }}');
 
-	putenv('TTRSS_AUTH_AUTO_CREATE', false);
+	putenv('TTRSS_AUTH_AUTO_CREATE=false');
 	putenv('TTRSS_SINGLE_USER_MODE=true');
 
 	define('ENABLE_REGISTRATION', false);
-
-	putenv('TTRSS_PLUGINS=auth_internal, cache_starred_images');
 
 	// vim:ft=php
 
